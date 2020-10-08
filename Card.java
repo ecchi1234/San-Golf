@@ -1,8 +1,19 @@
-public class Card{
-    protected String memberCode;
-    protected String memberName;
-    protected String lastDayUsing;
-    protected double totalMoney;
+public abstract class Card{
+    private String memberCode;
+    private String memberName;
+    private String lastDayUsing;
+    private double totalMoney;
+
+    public Card() {
+
+    }
+
+    public Card(String memberCode, String memberName, String lastDayUsing, double totalMoney) {
+        this.memberCode = memberCode;
+        this.memberName = memberName;
+        this.lastDayUsing = lastDayUsing;
+        this.totalMoney = totalMoney;
+    }
 
     public String getMemberCode() {
         return this.memberCode;
@@ -12,7 +23,7 @@ public class Card{
         return this.memberName;
     }
 
-    public String lastDayUsing() {
+    public String getLastDayUsing() {
         return this.lastDayUsing;
     }
 
@@ -47,5 +58,10 @@ public class Card{
         System.out.printf("Tong tien da su dung dich vu: %.2f", totalMoney);
     }
 
+    public int getYearLastUse() {
+        return Integer.parseInt(lastDayUsing.substring(6));
+    }
+
+    public abstract Card convertCard();
 
 }
