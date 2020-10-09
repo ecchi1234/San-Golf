@@ -20,4 +20,5 @@ public class MemberCard extends Card{
         System.out.println("The loai thanh vien");
         super.getInformation();
     }
+
 }

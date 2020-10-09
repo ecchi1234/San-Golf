@@ -1,3 +1,4 @@
+import java.time.*; // import the LocalDate class
 public abstract class Card{
     private String memberCode;
     private String memberName;
@@ -62,6 +63,26 @@ public abstract class Card{
         return Integer.parseInt(lastDayUsing.substring(6));
     }
 
+    public int getMonthLastUse() {
+        return Integer.parseInt(lastDayUsing.substring(3, 5));
+    }
+
+    public int getDayLastUse() {
+        return Integer.parseInt(lastDayUsing.substring(0, 2));
+    }
+
     public abstract Card convertCard();
 
+    public boolean checkUseInOneYear() {
+        LocalDate myDate = LocalDate.now();
+        LocalDate lastUse = LocalDate.of(this.getYearLastUse(), this.getMonthLastUse(), this.getDayLastUse());
+        Period diff = Period.between(lastUse, myDate); 
+        return (diff.getYears() >= 1);
+    }
+
+    public void resetTotalMoney() {
+        if (!this.checkUseInOneYear()) {
+            this.setTotalMoney(0);
+        }
+    }
 }

@@ -11,12 +11,20 @@ public class CardList {
         }
     }
 
-    public static void printAll() {
+    // In ra cac the co ngay su dung lon hon 1 nam va chuyen doi the theo dieu kien da quy dinh
+    public static void printCardNotUsedInOneYear() {
         for (Card c : cards) {
-            c = c.convertCard();
             c.getInformation();
+            System.out.println("The sau khi da chuyen doi: ");
+            if (c instanceof MemberCard) {
+                c.resetTotalMoney();
+            }
+            c.convertCard().getInformation();
         }
     }
 
+    public static void addCard(Card c) {
+        cards.add(c);
+    }
 
 }

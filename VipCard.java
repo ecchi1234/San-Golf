@@ -1,4 +1,4 @@
-import java.time.LocalDate; // import the LocalDate class
+import java.time.*; // import the LocalDate class
 
 public class VipCard extends Card{
     private int vipYear;
@@ -20,10 +20,10 @@ public class VipCard extends Card{
         this.setTotalMoney(this.getTotalMoney() + (serviceFee * getDiscount())); 
     }
 
-    public Card convertCard() {
-        LocalDate myDate = LocalDate.now();
-        if(myDate.getYear() != this.getYearLastUse()) {
-            return new MemberCard(this.getMemberCode(), this.getMemberName(), this.getLastDayUsing(), 0);
+    public Card convertCard() { 
+        if(!this.checkUseInOneYear()) {
+            this.resetTotalMoney();
+            return new MemberCard(this.getMemberCode(), this.getMemberName(), this.getLastDayUsing(), this.getTotalMoney());
         }
         else {
             return this;
