@@ -56,7 +56,7 @@ public abstract class Card{
         System.out.printf("Ma the: %s\n", memberCode);
         System.out.printf("Ten thanh vien: %s\n", memberName);
         System.out.printf("Lan cuoi su dung dich vu: %s\n", lastDayUsing);
-        System.out.printf("Tong tien da su dung dich vu: %.2f", totalMoney);
+        System.out.printf("Tong tien da su dung dich vu: %.2f\n", totalMoney);
     }
 
     public int getYearLastUse() {

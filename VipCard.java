@@ -1,5 +1,3 @@
-import java.time.*; // import the LocalDate class
-
 public class VipCard extends Card{
     private int vipYear;
 
